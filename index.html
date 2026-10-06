@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kereta Mimpi ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>:root{color-scheme:dark;--ink:#f4eeff;--bd:#a99be8;--soft:#bdb4ea;--pk:#6a4bd8;--pkd:#ffd98a;--bl:#2f55b8;--rose:#ffb86b;--gold:#ffd166;--cream:#1f1c58;--sf:#2a2670;--shd:rgba(4,3,24,.55);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{overflow-x:hidden;max-width:100%}
+*{box-sizing:border-box;min-width:0}
+button{touch-action:manipulation;font-family:inherit}
+body{margin:0;max-width:100%;overflow-x:hidden;background:#171345 linear-gradient(170deg,#0e0c34 0,#211a5c 55%,#3a2472 100%);background-attachment:fixed;color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-weight:700;font-size:1rem;line-height:1.5;overflow-wrap:anywhere}
+[hidden]{display:none!important}
+.sp{position:fixed;top:0;left:0;right:0;bottom:0;z-index:0;pointer-events:none;overflow:hidden}
+.sp i{position:absolute;font-style:normal;color:#fff3c4;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:.95;transform:scale(1.25)}}
+main{position:relative;z-index:1;width:100%;max-width:480px;margin:0 auto;padding:64px 16px 130px}
+h1{font-family:Fredoka,sans-serif;font-weight:700;font-size:1.5rem;line-height:1.25;margin:0 0 8px;color:var(--pkd);text-align:center}
+.intro{margin:0 0 14px;color:var(--soft);text-align:center;font-weight:600}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.chip{padding:5px 14px;border-radius:999px;background:var(--cream);border:3px solid var(--bd);font:800 .9rem Nunito,sans-serif;color:var(--ink)}
+button.chip{cursor:pointer;box-shadow:0 3px 0 var(--shd)}
+button.chip:active{transform:translateY(3px);box-shadow:none}
+.hud{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(18,15,58,.96);border-top:3px solid var(--bd)}
+.hudi{max-width:480px;margin:0 auto}
+.now{margin:0 0 6px;font-size:.88rem;line-height:1.35;text-align:center}
+.atp{margin:0 0 6px;font-size:.85rem;line-height:1.35;text-align:center}
+.mapi{position:relative;width:100%;padding-top:177.78%;border:4px solid var(--bd);border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#14113f 0,#2a2070 55%,#4a2c80 100%);box-shadow:0 5px 0 var(--shd)}
+.mapimg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block}
+.mapl{position:absolute;top:0;left:0;width:100%;height:100%;display:none;pointer-events:none}
+.mapi.nomap .mapimg{display:none}
+.mapi.nomap .mapl{display:block}
+.mapd{position:absolute;top:0;left:0;right:0;bottom:0;display:none;pointer-events:none;font-size:2rem;opacity:.5}
+.mapi.nomap .mapd{display:block}
+.mk{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;padding:0;border:3px solid var(--bd);border-radius:50%;background:var(--sf);color:var(--ink);font:800 1.15rem Fredoka,sans-serif;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 0 var(--shd),0 0 14px rgba(169,155,232,.5);z-index:2}
+.mk:active{margin-top:-23px;box-shadow:0 1px 0 var(--shd)}
+.mk.done{background:var(--gold);color:#2a1a5e;border-color:#fff3c4}
+.mk.open{background:var(--pk);color:#fff;border-color:#fff;animation:pl 1.8s infinite}
+.mk.lk0{background:#25235a;color:#8f8cc0;border-color:#5f5c9c;box-shadow:0 3px 0 var(--shd)}
+.mk.hid{width:34px;height:34px;margin:-17px 0 0 -17px;background:rgba(37,35,90,.8);color:#8f8cc0;border-color:#5f5c9c;box-shadow:none;font-size:1rem}
+.mk .mn{pointer-events:none}
+.ml{position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:7px;max-width:46vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 10px;border:2px solid var(--bd);border-radius:999px;background:rgba(20,17,63,.95);color:var(--ink);font:800 .72rem Nunito,sans-serif;pointer-events:none}
+.mk.hid .ml{display:none}
+.mapi:not(.nomap) .ml{display:none}
+.mb2{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);margin-bottom:8px;white-space:nowrap;padding:3px 10px;border:2px solid #fff3c4;border-radius:999px;background:var(--gold);color:#2a1a5e;font:800 .72rem Nunito,sans-serif;pointer-events:none;animation:bob 1.6s ease-in-out infinite}
+@keyframes pl{0%{box-shadow:0 4px 0 var(--shd),0 0 0 0 rgba(255,217,138,.65)}70%{box-shadow:0 4px 0 var(--shd),0 0 0 16px rgba(255,217,138,0)}100%{box-shadow:0 4px 0 var(--shd),0 0 0 0 rgba(255,217,138,0)}}
+.ban{display:block;width:100%;height:120px;object-fit:cover;border:2px solid var(--bd);border-radius:10px;margin:0 0 10px;background:#1b1950}
+.nav{display:block;width:100%;margin-top:12px;padding:15px 12px;border:3px solid var(--bd);border-radius:16px;background:var(--pk);color:#fff;font:800 1.05rem Nunito,sans-serif;box-shadow:0 5px 0 var(--shd);cursor:pointer}
+.nav:active{transform:translateY(4px);box-shadow:0 1px 0 var(--shd)}
+.nav.alt{background:var(--sf);color:var(--ink)}
+.nav:focus-visible,.chip:focus-visible,.mk:focus-visible,.cbtn:focus-visible,.mus:focus-visible,.sfxb:focus-visible,.sx:focus-visible,.dlg:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.slot{display:flex;align-items:center;justify-content:center;min-height:270px;border:4px dashed var(--bd);border-radius:20px;background:rgba(31,28,88,.7);margin-top:12px;padding:12px}
+.stampw{transform:rotate(-8deg);display:flex;align-items:center;justify-content:center}
+.stamp{width:236px;height:236px;border:6px solid var(--gold);border-radius:50%;box-shadow:inset 0 0 0 6px #1f1c58,inset 0 0 0 9px var(--gold);background:#1f1c58;color:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px}
+.stamp b{font-family:Fredoka,sans-serif;font-size:1.05rem;line-height:1.2}
+.stamp span{display:block;font-size:1.05rem;line-height:1.3;color:var(--ink);margin:6px 0}
+.stamp em{display:block;font-style:normal;font-size:.82rem}
+.capimg{display:none;width:min(300px,76vw);height:auto;filter:url(#kg) drop-shadow(0 6px 8px rgba(0,0,0,.5))}
+.stampw.hasimg .capimg{display:block}
+.stampw.hasimg .stamp{display:none}
+.stampw.hit{animation:hit .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes hit{from{transform:rotate(-20deg) scale(1.8);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:1}}
+.stcap{margin:10px 0 0;text-align:center;font-family:Fredoka,sans-serif;color:var(--pkd);font-size:1rem;line-height:1.4}
+.ph{margin:0;color:var(--soft);text-align:center;padding:0 20px}
+.endc{margin:0 0 6px;padding:14px;border:3px solid var(--bd);border-radius:20px;background:var(--cream);text-align:center}
+.endc b{display:block;font-family:Fredoka,sans-serif;font-size:1.15rem;color:var(--pkd);margin:2px 0 6px}
+.endc small{display:block;color:var(--soft);font-weight:600}
+.cf{position:fixed;z-index:70;font-size:1.7rem;pointer-events:none;animation:cf 1.5s ease-out forwards}
+@keyframes cf{from{transform:translate(0,0);opacity:1}to{transform:translate(var(--dx),var(--dy));opacity:0}}
+.end{margin:20px 0 0;text-align:center;font-family:Fredoka,sans-serif;font-size:1.05rem;line-height:1.5;color:var(--pkd)}
+.end small{display:block;font-family:Nunito,sans-serif;font-size:.9rem;color:var(--soft);margin-top:6px;font-weight:600}
+.mv{position:fixed;top:0;left:0;right:0;bottom:0;z-index:90;background:rgba(5,4,25,.72);display:flex;overflow-y:auto;padding:max(16px,env(safe-area-inset-top)) 14px max(16px,env(safe-area-inset-bottom))}
+.box{width:100%;max-width:440px;margin:auto;background:var(--cream);border:4px solid var(--bd);border-radius:22px;padding:16px}
+.dd{border:3px solid var(--bd);border-radius:14px;background:var(--sf);text-align:center;padding:14px 12px}
+.dk{margin:0;font-size:.78rem;letter-spacing:.08em;color:var(--soft)}
+.dtt{margin:2px 0;font-family:Fredoka,sans-serif;font-size:1.25rem;line-height:1.25;color:var(--pkd)}
+.dm{margin:6px 0;font-size:1.05rem}
+.dm b{font-size:1.9rem}
+.dq{margin:6px 0;font-weight:600;color:var(--soft)}
+.dp{margin:10px 0 0;padding-top:10px;border-top:2px dashed var(--bd);font-size:.95rem}
+.jl{margin:0 0 10px;text-align:left;padding:10px 12px;border:2px solid var(--bd);border-radius:12px;background:var(--sf)}
+.jl.no{background:#181547;color:var(--soft)}
+.jl b{display:block}
+.jl span{font-weight:600;font-size:.92rem}
+.jh{margin:12px 0 6px;font-family:Fredoka,sans-serif;font-size:.95rem;color:var(--pkd);text-align:center}
+.ta{display:block;width:100%;height:96px;margin:10px 0 0;padding:8px;border:2px solid var(--bd);border-radius:10px;background:#14113f;color:var(--ink);font:600 .85rem monospace}
+.mus,.sfxb{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));z-index:95;width:44px;height:44px;padding:0;border:3px solid var(--bd);border-radius:50%;background:var(--sf);font-size:1.2rem;cursor:pointer;box-shadow:0 3px 0 var(--shd)}
+.mus{right:12px}.sfxb{right:64px}
+.mus.on{background:var(--pk)}
+.stg{position:fixed;top:0;left:0;right:0;bottom:0;z-index:30;display:flex;flex-direction:column;background:#0e0c34}
+.scn{position:relative;flex:1;min-height:0;overflow:hidden;background:linear-gradient(var(--b1),var(--b2))}
+.sx{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));left:12px;z-index:7;height:44px;padding:0 14px;border:3px solid var(--bd);border-radius:999px;background:var(--sf);color:var(--ink);font:800 .9rem Nunito,sans-serif;cursor:pointer;box-shadow:0 3px 0 var(--shd)}
+.sb{position:absolute;top:calc(64px + env(safe-area-inset-top,0px));left:12px;z-index:5;padding:3px 12px;border-radius:999px;background:rgba(20,17,63,.88);border:2px solid var(--bd);font-size:.85rem}
+.pt{position:absolute;top:calc(64px + env(safe-area-inset-top,0px));right:12px;z-index:5;max-width:60%;padding:3px 12px;border-radius:999px;background:rgba(20,17,63,.88);border:2px solid var(--bd);font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-around;align-items:flex-end;font-size:2.6rem;opacity:.4;padding:0 6px 4px;pointer-events:none}
+.sh{position:absolute;left:0;right:0;top:14%;text-align:center;font-size:2.6rem;pointer-events:none}
+.scn.hasbg .sc,.scn.hasbg .sh{display:none}
+.fl{position:absolute;top:0;left:0;right:0;bottom:0;z-index:6;background:#fff;opacity:0;pointer-events:none}
+.fl.go{animation:flash .95s ease-in-out}
+@keyframes flash{0%{opacity:0}40%{opacity:1}100%{opacity:0}}
+.por{position:absolute;bottom:0;width:82%;height:84%;display:flex;align-items:flex-end;justify-content:center;transition:transform .25s,opacity .25s;pointer-events:none}
+.scn.noppl .por{display:none}
+.por.me{left:-17%;bottom:-16%}.por.lu{right:-17%;bottom:-10%}
+.por img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;opacity:0;filter:url(#kg) drop-shadow(0 6px 8px rgba(0,0,0,.5))}
+.nokey .por img,.nokey .capimg{filter:drop-shadow(0 6px 8px rgba(0,0,0,.5))}
+.por.ok img{opacity:1}
+.por.flip img{transform:scaleX(-1)}
+.por .pe{display:none;font-size:6rem;line-height:1;margin-bottom:18px}
+.por.bad .pe{display:block}
+.por.bad img{display:none}
+.por.dim{opacity:.55;transform:scale(.94)}
+.por.on{transform:scale(1.03);z-index:2}
+.dlg{position:relative;flex:none;background:rgba(22,19,68,.97);border-top:4px solid #7b6bd8;border-radius:26px 26px 0 0;padding:20px 18px calc(18px + env(safe-area-inset-bottom,0px));min-height:230px;cursor:pointer}
+.dnm{display:inline-block;margin:-36px 0 6px;padding:3px 14px;border-radius:999px;background:var(--pk);color:#fff;font-weight:800;border:3px solid var(--bd)}
+.dnm.P{background:var(--bl)}
+.dtx{font-size:1.08rem;line-height:1.6;min-height:4.8em;color:var(--ink)}
+.dtx.nar{font-style:italic;color:#cfc6f5}
+.dnx{position:absolute;right:20px;bottom:calc(10px + env(safe-area-inset-bottom,0px));font-size:1.2rem;color:var(--gold);animation:bb 1.2s ease-in-out infinite}
+@keyframes bb{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.chs{display:grid;gap:10px;margin-top:6px}
+.cbtn{padding:13px 14px;border:3px solid var(--bd);border-radius:16px;background:var(--sf);color:var(--ink);font:800 1rem Nunito,sans-serif;text-align:left;cursor:pointer;box-shadow:0 4px 0 var(--shd)}
+.cbtn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--shd)}
+.bf{position:fixed;left:50%;top:38%;z-index:100;transform:translateX(-50%);padding:6px 16px;border-radius:999px;background:var(--cream);border:3px solid var(--gold);color:var(--gold);font-weight:800;animation:bfu 1.4s ease-out forwards;pointer-events:none}
+@keyframes bfu{from{transform:translate(-50%,0);opacity:1}to{transform:translate(-50%,-70px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.stampw.hit,.mk.open,.mb2,.dnx,.sp i,.chev,.fl.go{animation:none}.cf,.bf{display:none}.lk{transition:opacity .3s}.lk.open{transform:none}}
+.lk{position:fixed;top:0;left:0;right:0;bottom:0;z-index:120;display:flex;flex-direction:column;align-items:center;text-align:center;touch-action:none;cursor:pointer;user-select:none;-webkit-user-select:none;background:url(lockscreen.jpg) center/cover no-repeat,linear-gradient(170deg,#0e0c34 0,#2a1f70 55%,#5a3a8a 100%);padding:max(48px,calc(env(safe-area-inset-top,0px) + 32px)) 24px max(36px,calc(env(safe-area-inset-bottom,0px) + 24px));transition:transform .55s cubic-bezier(.3,.8,.3,1),opacity .55s;color:#fff}
+.lk::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(8,6,36,.55) 0,rgba(8,6,36,0) 36%,rgba(8,6,36,0) 62%,rgba(8,6,36,.62) 100%);pointer-events:none}
+.lk>*{position:relative}
+.lk.open{transform:translateY(-100%);opacity:0;pointer-events:none}
+.lk:focus-visible{outline:4px solid var(--rose);outline-offset:-8px}
+.lk-date{margin:0;font-weight:800;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.lk-time{margin:0;font-size:4.6rem;line-height:1.1;font-weight:800;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.lk-title{margin:22px 0 6px;font-family:Fredoka,sans-serif;font-size:1.8rem;line-height:1.2;color:#ffe9b0;text-shadow:0 1px 12px rgba(0,0,0,.8)}
+.lk-sub{margin:0;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.lk-bot{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:10px}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(4px);opacity:.7}50%{transform:translateX(-50%) translateY(-4px);opacity:1}}
+.chev{font-size:1.8rem;line-height:1;color:var(--gold)}
+.lk .chev{animation:lb 1.6s ease-in-out infinite}
+@keyframes lb{0%,100%{transform:translateY(4px);opacity:.5}50%{transform:translateY(-6px);opacity:1}}
+.lk-go{margin:0;padding:14px 30px;border:3px solid #fff3c4;border-radius:16px;background:var(--pk);color:#fff;font-weight:800;font-size:1.1rem;box-shadow:0 5px 0 rgba(0,0,0,.5)}
+.lk-hint{margin:0;font-size:.85rem;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<!-- penghapus latar hijau polos (#00FF00) otomatis. Aman untuk PNG yang sudah transparan. -->
+<filter id="kg" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+<feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3 3 0 0 -0.3" result="gr"/>
+<feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 3 -3 0 -0.3" result="gb"/>
+<feComposite in="gr" in2="gb" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="gg"/>
+<feComposite in="SourceGraphic" in2="gg" operator="out"/>
+</filter></defs></svg>
+<div class="sp" id="sp" aria-hidden="true"></div>
+<div class="lk" id="lk" role="button" tabindex="0" aria-label="Buka kunci layar">
+<p class="lk-date" id="lkd"></p><p class="lk-time" id="lkt"></p>
+<p class="lk-title"></p><p class="lk-sub"></p>
+<div class="lk-bot"><span class="chev" aria-hidden="true">⌃</span><p class="lk-go" id="lkgo">Naik kereta 🚂</p><p class="lk-hint">Ketuk atau usap ke atas</p></div>
+</div>
+<main>
+<section id="hm">
+<h1>Kereta Mimpi 🚂✨</h1>
+<p class="intro" id="intro"></p>
+<div class="mapi" id="mapi">
+<img class="mapimg" id="mapimg" src="peta.jpg" alt="Peta perjalanan Kereta Mimpi">
+<svg class="mapl" id="mapl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline id="mpl" fill="none" stroke="#ffd98a" stroke-width="3" stroke-dasharray="2 2.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" points=""/></svg>
+<div class="mapd" aria-hidden="true"><span style="position:absolute;left:10%;top:7%">🌌</span><span style="position:absolute;right:10%;top:20%">✨</span><span style="position:absolute;left:12%;top:46%">🪐</span><span style="position:absolute;right:10%;top:68%">🌙</span><span style="position:absolute;left:10%;bottom:5%">🌍</span><span style="position:absolute;left:44%;top:3%">🕳️</span></div>
+</div>
+</section>
+<section id="fin" hidden>
+<h1>Lubang Hitam yang Lembut 🌌</h1>
+<div class="endc" id="endc"></div>
+<div class="slot"><p class="ph" id="ph">Cap perjalanan hari ini di sini</p>
+<div class="stampw" id="stamp" hidden><img class="capimg" id="capimg" src="cap.png" alt="Cap perjalanan selesai"><div class="stamp" id="stampf"><b>Perjalanan Selesai 🚂</b><span id="stc"></span><em id="sdate"></em></div></div></div>
+<p class="stcap" id="stcap" hidden></p>
+<button class="nav" id="press" type="button">Cap perjalanan hari ini 🚂</button>
+<p class="end" id="bye" hidden><span id="endm"></span><small id="ends"></small></p>
+<button class="nav alt" id="again" type="button">Ulangi perjalanan, cari ending lain 🔁</button>
+<button class="nav alt" id="back" type="button">◀ Kembali ke peta</button>
+</section>
+</main>
+<div class="hud" id="hud"><div class="hudi" id="hudi">
+<div id="hudn"><p class="now" id="now"></p>
+<div class="stats"><span class="chip" id="cBond">💖 0</span><span class="chip" id="cLight">🪐 0/9</span><button class="chip" id="bJur" type="button">📜 Jurnal</button><span class="chip" id="uji" hidden>⚙ Mode uji</span></div></div>
+<div id="huda" hidden><p class="atp"><b>Mode atur titik.</b> Geser tiap nomor ke lokasinya di peta. Posisi tersimpan otomatis.</p><div class="stats"><button class="chip" id="aLihat" type="button">📋 Lihat angka</button><button class="chip" id="aReset" type="button">↺ Reset</button><button class="chip" id="aSelesai" type="button">✔ Selesai</button></div></div>
+</div></div>
+<audio id="bgm" src="mimpi.mp3" loop preload="auto"></audio>
+<button class="sfxb" id="sfxb" type="button" aria-label="Efek suara">🔔</button>
+<button class="mus" id="mus" type="button" aria-pressed="false" aria-label="Putar musik" hidden>🎵</button>
+<div class="stg" id="stg" hidden>
+<div class="scn" id="scn">
+<button class="sx" id="sx" type="button">✕ Keluar</button>
+<p class="sb" id="sb">💖 0</p>
+<p class="pt" id="pt"></p>
+<div class="sh" id="sh"></div><div class="sc" id="sc"></div>
+<div class="por me" id="pme" aria-hidden="true"><img id="imz" alt=""><span class="pe" id="pez">👧</span></div>
+<div class="por lu" id="plu" aria-hidden="true"><img id="imo" alt=""><span class="pe" id="peo">🚂</span></div>
+<div class="fl" id="fl" aria-hidden="true"></div>
+</div>
+<div class="dlg" id="dlg" tabindex="0" role="button" aria-label="Lanjutkan cerita">
+<span class="dnm" id="dnm"></span>
+<div class="dtx" id="dtx" aria-live="polite"></div>
+<div class="chs" id="chs" hidden></div>
+<span class="dnx" id="dnx" aria-hidden="true">▾</span>
+</div>
+</div>
+<div class="mv" id="mv" hidden><div class="box" role="dialog" aria-modal="true"><div id="mc"></div><div id="mb"></div></div></div>
+<script>
+/* Layar kunci + musik: sengaja dipisah dan mandiri, supaya tetap jalan walau skrip cerita bermasalah */
+(function(){
+var d=document,$=function(id){return d.getElementById(id)};
+var lk=$("lk"),inertEls=d.querySelectorAll("main,.hud"),bgm=$("bgm"),mus=$("mus"),locked=true,wasOn=false,HK="km-started";
+function two(n){return("0"+n).slice(-2)}
+function tick(){try{var t=new Date();$("lkt").textContent=two(t.getHours())+":"+two(t.getMinutes());$("lkd").textContent=t.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long"})}catch(e){}}
+tick();var tk=setInterval(tick,10000);
+var started=false;
+try{started=!!localStorage.getItem(HK)}catch(e){}
+try{var st=JSON.parse(localStorage.getItem("km-state")||"null");if(st&&(st.cap||(st.done&&st.done.length)))started=true}catch(e){}
+function label(a,b,st2){$("lkgo").textContent=(st2||started)?b:a}
+label("Naik kereta 🚂","Lanjut perjalanan 🚂");
+function setInert(v){try{for(var i=0;i<inertEls.length;i++)inertEls[i].inert=v}catch(e){}}
+setInert(true);
+d.body.style.overflow="hidden";
+function unlock(){
+if(!locked)return;locked=false;clearInterval(tk);
+try{localStorage.setItem(HK,"1")}catch(e){}
+try{lk.style.transform="";lk.classList.add("open")}catch(e){}
+setInert(false);
+d.body.style.overflow="";
+try{var pr=bgm.play();if(pr&&pr.catch)pr.catch(function(){})}catch(e){}
+setTimeout(function(){lk.hidden=true;lk.style.display="none";window.scrollTo(0,0);try{if(window.__onOpen)window.__onOpen()}catch(e){}},650);
+}
+var sy=null,dy=0;
+function down(y){sy=y;dy=0;lk.style.transition="none"}
+function move(y){if(sy===null)return;dy=Math.max(0,sy-y);lk.style.transform="translateY("+(-dy)+"px)"}
+function up(){if(sy===null)return;sy=null;lk.style.transition="";if(dy>60||dy<10)unlock();else lk.style.transform=""}
+function cancel(){sy=null;lk.style.transition="";lk.style.transform=""}
+if(window.PointerEvent){
+lk.addEventListener("pointerdown",function(e){down(e.clientY);try{lk.setPointerCapture(e.pointerId)}catch(x){}});
+lk.addEventListener("pointermove",function(e){move(e.clientY)});
+lk.addEventListener("pointerup",up);
+lk.addEventListener("pointercancel",cancel);
+}else{
+lk.addEventListener("touchstart",function(e){down(e.touches[0].clientY)},{passive:true});
+lk.addEventListener("touchmove",function(e){move(e.touches[0].clientY)},{passive:true});
+lk.addEventListener("touchend",up);
+lk.addEventListener("touchcancel",cancel);
+lk.addEventListener("mousedown",function(e){down(e.clientY)});
+d.addEventListener("mousemove",function(e){move(e.clientY)});
+d.addEventListener("mouseup",up);
+}
+lk.addEventListener("click",unlock);
+lk.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "||e.key==="ArrowUp"){e.preventDefault();unlock()}});
+try{lk.focus()}catch(e){}
+function mUi(){var on=!bgm.paused;mus.classList.toggle("on",on);mus.textContent=on?"🔊":"🎵";mus.setAttribute("aria-pressed",on);mus.setAttribute("aria-label",on?"Jeda musik":"Putar musik")}
+try{
+bgm.addEventListener("play",function(){mus.hidden=false;mUi()});
+bgm.addEventListener("pause",mUi);
+bgm.addEventListener("error",function(){mus.hidden=true});
+mus.addEventListener("click",function(){if(bgm.paused){var p=bgm.play();if(p&&p.catch)p.catch(function(){})}else bgm.pause()});
+d.addEventListener("visibilitychange",function(){if(d.hidden){wasOn=!bgm.paused;bgm.pause()}else if(wasOn){var p=bgm.play();if(p&&p.catch)p.catch(function(){})}});
+}catch(e){}
+window.__lock={unlock:unlock,label:label};
+})();
+</script>
+<script>
+/* ================== ISI KATA-KATAMU DI SINI ================== */
+var NAMA_DIA="Zuca";   /* nama dia */
+var NAMA_AKU="Okan";   /* nama kamu: si kereta mimpi */
+var KEY_HIJAU=true;    /* true = latar hijau polos (#00FF00) pada gambar karakter dan cap dihapus otomatis. Aman kalau PNG-nya sudah transparan. */
+var BALIK_ZUCA=false;  /* true = gambar Zuca dibalik kiri-kanan */
+var BALIK_JELLY=false; /* true = gambar Okan dibalik kiri-kanan */
+var TEXT={
+lockTitle:"Kereta Mimpi 🚂✨",
+lockSub:"Perjalanan kecil di antara planet, khusus buat "+NAMA_DIA,
+startBtn:"Naik kereta 🚂",
+contBtn:"Lanjut perjalanan 🚂",
+intro:NAMA_DIA+", ada kereta mimpi yang menunggumu. Lakukan kegiatan nyata hari ini, dan tiap kegiatan membuka satu perhentian di peta. Pilihanmu mengubah ending!",
+endMain:"Sampai ketemu lagi, "+NAMA_DIA+". 💖",
+endSub:"Terima kasih sudah jadi sahabat terbaikku."
+};
+/* false = perhentian terbuka urut saja, tanpa menunggu jam. true = juga baru terbuka kalau jamnya sudah tiba.
+   Buat ngetes kapan saja: tambahkan #uji di ujung alamat web.
+   Buat menggeser titik di peta: ketuk judul di halaman peta 5 kali lalu pilih Atur titik (atau tambahkan #atur di ujung alamat web). */
+var KUNCI_JAM=false;
+/* ================== CERITA ================== */
+/* Tiap perhentian punya 2 gambar latar: a = di perjalanan (hanya narasi dan dialog, tanpa karakter), b = tiba (karakter muncul).
+   Perhentian terakhir punya c = pulang (kamar saat pagi).
+   T("b") = kereta berbunyi, layar berkilat putih, lalu pindah ke gambar tiba. T("c") otomatis sebelum ending.
+   N = narasi, P = Okan (kereta), K = Zuca. Saat perjalanan (a) dan pulang (c), kata Okan ditandai 🔔 (suara lonceng kereta).
+   Syarat tampil (opsional): if:"flag"  no:"flag"  min:angka  max:angka  when:"pagi,siang,sore,malam"
+   Ekspresi (opsional): m:"senang"|"kaget" = ekspresi si pembicara; z:"..." / o:"..." = ekspresi Zuca / Okan (diam, bicara, senang, kaget)
+   Flag otomatis: "late" (datang telat >90 menit dari jam perhentian). */
+var AKU=NAMA_AKU;
+function N(t,o){return Object.assign({w:"N",t:t},o||{})}
+function P(t,o){return Object.assign({w:"P",t:t},o||{})}
+function K(t,o){return Object.assign({w:"K",t:t},o||{})}
+function T(to){return{w:"T",to:to}}
+function C(a){return{ch:a}}
+var CH=[
+{t:"07.00",title:"Stasiun Bumi",e:"🚉",task:"Bangun tanpa alarm, buka jendela, lalu kirim “selamat pagi” ke aku",bg:["#2a2a6e","#6b5bb0"],deco:"🚉🌍🚉✨🚉",
+scene:[
+N("Sebelum alarm sempat berbunyi, ada lonceng kecil berdenting dari kejauhan. Kamu membuka mata, dan ternyata kamu sudah duduk di sebuah kereta tanpa atap, meluncur pelan di atas pita cahaya."),
+N("Di depan sana, sebuah planet biru berputar tenang. Itu Bumi, tempat kamu berangkat.",{no:"late"}),
+N("Kamu bangun agak siang, tapi kereta ini sabar menunggu. Di depan sana, planet biru berputar tenang. Itu Bumi.",{if:"late"}),
+P("Selamat pagi, "+NAMA_DIA+". Ini aku, "+AKU+". Kereta ini aku, dan hari ini aku yang bawa kamu keliling langit."),
+K("Kamu... keretanya? Aku lagi mimpi ya?"),
+P("Mungkin. Tapi mimpi yang ini boleh kamu nikmati sepenuh hati. Pegangan ya, kita mampir ke stasiun dulu."),
+T("b"),
+N("Kereta berhenti halus di Stasiun Bumi: peron kayu, lampion kuningan, dan papan jadwal yang isinya cuma gambar bintang kecil."),
+P("Semua perjalanan mulai dari sini. Sebelum naik tinggi, aku mau tanya satu hal.",{m:"senang"}),
+P("Kamu berangkat dengan perasaan seperti apa?"),
+C([
+{t:"“Semangat! Ayo berangkat!”",b:2,f:"berani",r:[P("Itu dia. Lampu keretaku jadi makin terang.",{m:"senang"})]},
+{t:"“Sedikit deg-degan, tapi mau.”",b:2,f:"percaya",r:[P("Deg-degan itu tanda kamu peduli. Aku di sini, nggak ke mana-mana.")]},
+{t:"“Masih ngantuk... pelan-pelan ya.”",b:1,r:[P("Siap. Aku jalan pelan, selimutmu jangan dilepas.")]}
+]),
+N("Peluit berbunyi lembut, dan kereta mulai naik meninggalkan peron.")],
+reward:["🎫","Tiket Perjalanan","Selamat pagi, "+NAMA_DIA+". Semoga harimu selembut perjalanan ini."]},
+{t:"08.30",title:"Planet Gema",e:"🔔",task:"Sarapan santai, lalu kirim aku satu pesan atau voice note",bg:["#33307a","#7a6cc4"],deco:"🔔🌀🔔✨🔔",
+scene:[
+N("Pita cahaya membawa kalian ke sebuah planet yang bergetar halus. Lautnya melengkung seperti cermin, dan dari kejauhan terdengar suara yang berulang pelan, seperti nyanyian."),
+P("Itu Planet Gema. Apa pun yang kamu ucapkan di sana akan kembali padamu."),
+K("Kembali padaku? Berarti aku harus hati-hati bicaranya ya."),
+P("Justru itu enaknya. Ucapkan yang baik, dan yang baik yang pulang."),
+T("b"),
+N("Kalian mendarat di tepi danau berbentuk mangkuk raksasa. Setiap tetes air yang jatuh mengirim lingkaran riak yang berbunyi merdu."),
+P("Coba panggil sesuatu ke seberang. Apa saja.",{m:"senang"}),
+C([
+{t:"Teriak: “Aku bisa!”",b:2,f:"gema",r:[N("Gema menjawab dari segala arah: “...bisa... bisa... bisa...” dan dadamu terasa hangat.",{z:"senang"})]},
+{t:"Bisik pelan: “Terima kasih sudah ada.”",b:2,f:"jujur",r:[N("Bisikanmu kembali berkali-kali, makin lembut, seperti dipeluk."),P("Aku dengar kok. Setiap kali.",{m:"senang"})]},
+{t:"Cuma dengerin gemanya",b:1,r:[N("Kamu duduk diam. Planet itu menyanyikan namamu pelan-pelan.")]}
+])],
+reward:["🔔","Lonceng Gema","Satu hal baik yang kamu ucapkan hari ini akan selalu kembali padamu."]},
+{t:"09.30",title:"Planet Hujan Kaca",e:"🌧️",task:"Jalan pagi atau olahraga ringan, lalu kabarin aku",bg:["#2a3f7a","#5a8fc0"],deco:"🌧️💧🌧️✨🌧️",
+scene:[
+N("Awan-awan ungu menipis, dan tiba-tiba butiran bening berjatuhan di sekeliling kereta. Bukan air, tapi kaca-kaca kecil yang berdenting merdu."),
+P("Planet Hujan Kaca. Hujannya nggak membasahi, cuma berbunyi. Aku suka sekali tempat ini."),
+K("Cantik banget... suaranya kayak lonceng kecil."),
+P("Duduk yang tenang ya. Aku jalan pelan supaya dentingnya nggak buyar."),
+T("b"),
+N("Kalian berhenti di padang luas yang berkilau. Setiap tetes kaca jatuh ke tanah dan berubah menjadi bunga bening yang bersinar sebentar, lalu menghilang."),
+P("Katanya hujan di sini membawa pergi hal-hal yang berat. Kamu lagi bawa apa?"),
+C([
+{t:"Lepas satu kekhawatiran, biar jadi kaca",b:2,f:"lepas",r:[N("Satu butir kaca di telapak tanganmu berkilau lalu pecah jadi serbuk cahaya. Dadamu terasa lebih ringan.",{z:"senang"}),P("Satu per satu juga cukup.")]},
+{t:"Jalan di bawah hujannya sambil senyum",b:2,f:"tenang",r:[N("Dentingnya membentuk melodi kecil di setiap langkahmu.",{z:"senang",o:"senang"})]},
+{t:"Duduk dan hirup udara segarnya dulu",b:1,r:[P("Udara di sini bening. Tarik napas yang dalam.")]}
+])],
+reward:["🌧️","Kaca Hujan","Kirim satu foto langit atau jalan yang kamu lihat pagi ini, ya. Aku mau lihat."]},
+{t:"11.00",title:"Planet Jam Pasir",e:"⏳",task:"Bersih-bersih kamar, cuci baju, dan jemur di bawah matahari",bg:["#3a2f6e","#8a6aa8"],deco:"⏳✨⏳🌙⏳",
+scene:[
+N("Bintang-bintang di depan terlihat bergerak makin lambat. Lalu muncul sebuah planet dengan cincin berbentuk jam pasir raksasa, butir pasirnya berkilau emas."),
+P("Planet Jam Pasir. Di sana waktu berjalan pelan, jadi kita bebas bekerja tanpa terburu-buru."),
+K("Berarti beres-beres di sana nggak akan terasa lama?"),
+P("Kayak sulap. Atau kayak lagi dengerin lagu favorit."),
+T("b"),
+N("Tanah di sini terbuat dari pasir halus berwarna madu. Di tengahnya, cincin jam pasir berputar sangat pelan, dan butirannya jatuh seperti salju emas."),
+N("Di sekitar kalian berserakan potongan waktu yang kusut. Kalau dirapikan, cahayanya akan menyala."),
+P("Mau bantu aku merapikannya? Satu per satu aja."),
+C([
+{t:"Rapikan semuanya sampai bersih",b:2,f:"rajin",r:[N("Potongan waktu itu tersusun rapi dan menyala hangat. Seluruh planet bersinar.",{z:"senang"})]},
+{t:"Rapikan bareng "+AKU+", sambil ngobrol",b:2,f:"berdua",r:[P("Aku bantu pakai lampu keretaku.",{m:"senang"}),N("Obrolan kalian membuat waktu terasa seperti hadiah.",{z:"senang",o:"senang"})]},
+{t:"Rapikan sedikit saja, sisanya nanti",b:1,r:[P("Nggak apa-apa. Sedikit juga tandanya kamu sudah bergerak maju.")]}
+])],
+reward:["⏳","Pasir Waktu","Kamar rapi, kepala tenang. Kamu hebat banget, "+NAMA_DIA+"."]},
+{t:"12.30",title:"Planet Surat",e:"💌",task:"Makan siang yang enak, dan tutup dengan es krim kalau bisa",bg:["#2f3a7a","#b58ac4"],deco:"💌✉️💌✨💌",
+scene:[
+N("Dari kejauhan, planet itu tampak seperti bola kertas krem yang lembut. Ribuan amplop kecil melayang di sekelilingnya seperti kawanan burung."),
+P("Planet Surat. Semua perasaan yang belum sempat disampaikan akan singgah di sini."),
+K("Termasuk yang belum sempat aku bilang?"),
+P("Termasuk itu. Mereka sabar menunggu."),
+T("b"),
+N("Di planet itu berdiri kotak pos besar berwarna merah muda, sendirian di tengah padang. Amplop-amplop kosong beterbangan di sekelilingnya, menunggu diisi."),
+P("Dulu aku sering lihat orang menulis di sini. Kamu mau coba?"),
+C([
+{t:"Tulis surat untuk "+AKU,b:2,f:"surat",r:[N("Tintamu bersinar emas di atas kertas, dan amplopnya terbang masuk ke dalam lampu keretaku."),P("Aku simpan. Di tempat yang paling hangat.",{m:"senang"})]},
+{t:"Tulis surat untuk dirimu sendiri",b:2,f:"surat",r:[N("Kamu menulis kalimat-kalimat lembut untuk dirimu sebentar lagi. Amplopnya berkilau.",{z:"senang"}),P("Surat terbaik itu yang kita tulis buat diri sendiri.")]},
+{t:"Cuma baca surat orang lain yang melayang",b:1,r:[N("Satu amplop berbisik: “Terima kasih sudah bertahan hari ini.” Rasanya seperti ditujukan padamu.")]}
+])],
+reward:["🍦","Voucher Es Krim","Berlaku 1x: aku traktir es krim favoritmu."]},
+{t:"14.00",title:"Planet Mercusuar",e:"🗼",task:"Nonton anime atau film favorit sambil rebahan",bg:["#262a6e","#8a76b8"],deco:"🗼🌙🗼⭐🗼",
+scene:[
+N("Di tengah kegelapan yang tenang, sebuah cahaya hangat berputar pelan. Planet kecil dengan mercusuar bergaris putih dan merah berdiri sendirian."),
+P("Planet Mercusuar. Kapal-kapal bintang yang lelah berhenti di sini untuk istirahat."),
+K("Aku juga mulai ngantuk, jujur."),
+P("Bagus. Mercusuar ini punya aturan resmi: boleh bermalas-malasan."),
+T("b"),
+N("Di puncak mercusuar ada kamar kecil dengan jendela bundar, kursi malas, dan selimut tebal. Cahayanya berputar lambat seperti dengkuran kucing."),
+N("Kamu mulai mengantuk, dan itu wajar.",{when:"siang"}),
+P("Silakan duduk. Mau ngobrol, atau cuma tenang berdua?"),
+C([
+{t:"Ceritakan satu mimpiku yang belum pernah kuceritakan",b:2,f:"mimpi",r:[P("Aku simpan baik-baik. Suatu hari, kita wujudkan bareng.")]},
+{t:"Tanya balik: “Mimpimu apa?”",b:2,f:"rahasia",r:[P("Hmm... mimpiku sederhana. Lihat sahabatku tersenyum tiap hari, dan mimpinya jadi kenyataan."),N("Pipimu menghangat.",{z:"senang"})]},
+{t:"Diam dan lihat cahayanya berputar",b:1,r:[N("Cahaya mercusuar menyapu langit, dan satu bintang berkedip seperti membalas.")]}
+])],
+reward:["🎶","Lagu Rekomendasi","Kirim satu lagu atau judul anime favoritmu. Aku mau ikut dengar dan nonton."]},
+{t:"16.00",title:"Keluarga TRAPPIST",e:"🪐",task:"Waktu hobi: menggambar, baca manga, atau main santai",bg:["#2c2f78","#6aa0d0"],deco:"🪐🪐🪐🪐🪐",
+scene:[
+N("Tujuh titik bulat berbaris lurus di depan, seperti manik-manik di benang tak terlihat. Masing-masing bersinar dengan warnanya sendiri."),
+P("Itu Keluarga TRAPPIST. Tujuh planet bersaudara yang tinggal berdekatan dan saling menyapa tiap hari."),
+K("Tujuh? Mereka kelihatan akrab banget."),
+P("Memang. Jaraknya dekat, jadi mereka nggak pernah kesepian."),
+T("b"),
+N("Kereta melayang di antara tujuh planet bersaudara. Dari jendela, kamu bisa melihat tetangga di kiri dan kanan setiap planet, dan semuanya melambai."),
+P("Tujuh dunia, tujuh cara berbeda untuk bahagia. Kalau boleh mampir ke satu dulu, kamu pilih yang mana?"),
+C([
+{t:"Planet penuh warna dan lukisan",b:2,f:"seni",r:[N("Dindingnya terbuat dari kanvas, dan setiap warna bergerak pelan mengikuti jarimu.",{z:"senang"}),P("Hobimu pasti betah di sini.")]},
+{t:"Planet penuh buku dan cerita",b:2,f:"cerita",r:[N("Halaman demi halaman terbang seperti burung, dan kamu menangkap satu yang bercahaya.",{z:"senang"})]},
+{t:"Planet tenang buat main santai",b:1,r:[P("Pilihan bijak. Kadang bermain itu cara istirahat terbaik.")]}
+])],
+reward:["💎","Tujuh Cahaya","Aku bangga sama kamu. Terus berkarya ya."]},
+{t:"17.30",title:"Planet Pengembara",e:"🌇",task:"Jalan sore, jajan camilan, lalu lihat senja",bg:["#3a2a70","#a06aa8"],deco:"🌇☄️🌇✨🌇",
+scene:[
+N("Sebuah planet kecil melintas sendirian, meninggalkan jejak cahaya panjang seperti selendang. Ia berjalan terus, tapi tidak tampak kesepian."),
+P("Itu Planet Pengembara. Ia selalu berjalan, mencari tempat yang pas buat melihat senja."),
+K("Di luar angkasa juga ada senja?"),
+P("Di mana pun ada hati yang ingin berhenti sebentar, di situ ada senja."),
+T("b"),
+N("Kalian mendarat di bukit kecil di planet itu. Langitnya bergradasi jingga dan ungu, dan di kejauhan jejak cahayanya melengkung seperti jalan pulang."),
+P("Aku masih ingat apa yang kamu tulis di planet surat.",{if:"surat"}),
+C([
+{t:"Jajan, dan sisakan satu untuk "+AKU,b:2,f:"berdua",r:[P("Kereta nggak bisa makan, tapi aku senang kamu ingat aku.",{m:"senang"})]},
+{t:"Lepas lentera apung sambil berharap",b:2,f:"harapan",r:[N("Lentera mengapung pelan ke langit, membawa harapanmu ke antara bintang-bintang pertama.")]},
+{t:"Foto senja buat kenang-kenangan",b:1,r:[P("Kirim ke aku juga, ya.")]}
+])],
+reward:["🎐","Selendang Senja","Semoga harimu selalu sejuk dan damai."]},
+{t:"19.00",title:"Lubang Hitam Lembut",e:"🌌",task:"Mandi, siapin keperluan besok, lalu tulis 3 hal yang bikin hari ini spesial",bg:["#14123e","#4a2f7a"],deco:"🌌✨🌌🚂🌌",end:true,
+scene:[
+N("Bintang-bintang mulai berkumpul ke satu arah, seperti orang-orang yang pulang ke rumah. Di depan terbentang lingkaran besar bercincin ungu dan emas, tenang dan hening."),
+N("Kamu datang tepat waktu, dan cincin itu bersinar lebih hangat.",{no:"late"}),
+P("Itu lubang hitam. Tapi bukan yang seram. Itu tempat semua cahaya hari ini beristirahat."),
+K("Nggak serem... malah kayak pelukan."),
+P("Memang itu tujuannya. Nggak ada yang hilang di sana. Semuanya cuma pulang."),
+T("b"),
+N("Kereta melambat di tepi cincin. Dari dekat, hitamnya bukan gelap yang menakutkan, tapi gelap yang empuk seperti selimut. Titik-titik cahaya berputar pelan di sekelilingnya seperti kunang-kunang."),
+P("Ini perhentian terakhir. Aku percaya padamu, "+NAMA_DIA+".",{min:12,m:"senang"}),
+P("Apa pun hasilnya, aku senang kita sampai sejauh ini.",{max:6}),
+P("Kalau cuma boleh bawa satu hal pulang dari hari ini, kamu mau bawa apa?"),
+C([
+{t:"Perjalanan bersama "+AKU,b:2,r:[N("Cahaya hangat mengalir dari tanganmu dan menyatu dengan lampu keretaku.")]},
+{t:"Rasa tenang yang kutemukan",b:1,r:[N("Kamu memejamkan mata dan menarik napas panjang. Dunia terasa pelan.")]},
+{t:"Semua kenangan hari ini",b:2,f:"semua",r:[N("Seluruh cerita hari ini berkumpul menjadi satu bintang kecil di telapak tanganmu.")]}
+])],
+reward:["🌌","Tiket Pulang","Kamu sudah menyelesaikan semuanya. Terima kasih sudah menemaniku seharian, sahabatku."]}
+];
+/* Ending ditampilkan setelah pindah ke gambar c (kamar saat pagi) */
+var ENDS=[
+{id:"bintang",name:"Bintang Milikmu",hid:true,hint:"Ending rahasia",ok:function(){return F.surat&&F.harapan&&F.jujur&&S.bond>=12&&S.tepat>=5},
+nodes:function(){return[N("Cincin lubang hitam berpendar, lalu melepaskan satu bintang kecil yang melayang pelan menembus jendela kamarmu. Warnanya ungu dan emas."),N("Kamu membuka mata. Pagi baru menyentuh kamarmu, selimutmu hangat, dan di dekat jendela ada satu bintang kecil berkedip seperti lonceng yang jauh."),P("Itu bintangmu, "+NAMA_DIA+". Kapan pun kamu kangen langit, tinggal lihat dia. Aku ada di sana.",{m:"senang"}),N("Ending Rahasia: Bintang Milikmu ⭐")]}},
+{id:"penuh",name:"Pulang dengan Hati Penuh",hint:"Dekat sekali dengan sahabatmu",ok:function(){return S.bond>=12},
+nodes:function(){return[N("Kereta melewati cincin lubang hitam dengan lembut, dan semua cahaya hari ini ikut pulang bersamamu. Kamu terbangun di kamarmu yang hangat, pagi baru menyapa dari jendela."),P("Kamu berhasil, "+NAMA_DIA+". Terima kasih sudah percaya sama aku.",{m:"senang"}),N("Ending: Pulang dengan Hati Penuh 🌙")]}},
+{id:"hangat",name:"Pulang Pelan-Pelan",hint:"Cukup dekat dengan sahabatmu",ok:function(){return S.bond>=7},
+nodes:function(){return[N("Kamu terbangun pelan di kamarmu. Masih ada sisa dentingan lonceng di telinga, dan hatimu terasa hangat."),P("Besok kita cari planet lainnya bareng-bareng, ya."),N("Ending: Pulang Pelan-Pelan 🕯️")]}},
+{id:"baru",name:"Perjalanan yang Baru Mulai",hint:"Mulai dengan pilihan lain",ok:function(){return true},
+nodes:function(){return[N("Kamu terbangun, belum yakin tadi mimpi atau bukan. Tapi bunyi lonceng yang jauh masih bergema."),P("Masih banyak malam untuk kita coba lagi. Aku akan selalu menunggu di peron."),N("Ending: Perjalanan yang Baru Mulai 🌠")]}}
+];
+/* ================== SELESAI. Di bawah ini jangan diubah kalau nggak yakin ================== */
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function rnd(n){return Math.floor(Math.random()*n)}
+if(!KEY_HIJAU)document.documentElement.classList.add("nokey");
+document.querySelector(".lk-title").textContent=TEXT.lockTitle;
+document.querySelector(".lk-sub").textContent=TEXT.lockSub;
+$("intro").textContent=TEXT.intro;$("endm").textContent=TEXT.endMain;$("ends").textContent=TEXT.endSub;
+var UJI=location.hash==="#uji",ATUR=location.hash==="#atur";if(UJI)$("uji").hidden=false;
+var K1="km-state",K2="km-perm",KP="km-peta",today=new Date().toDateString();
+var S={day:today,done:[],bond:0,F:{},tepat:0,ending:null,cap:null},PM={ends:[],sfx:true};
+try{PM=Object.assign(PM,JSON.parse(localStorage.getItem(K2)||"{}"))}catch(e){}
+try{var _s=JSON.parse(localStorage.getItem(K1)||"null");if(_s&&_s.day===today)S=Object.assign(S,_s)}catch(e){}
+var F=S.F;
+function save(){try{S.F=F;localStorage.setItem(K1,JSON.stringify(S))}catch(e){}}
+function savePM(){try{localStorage.setItem(K2,JSON.stringify(PM))}catch(e){}}
+function isDone(i){return S.done.indexOf(i)>-1}
+function allDone(){return S.done.length>=CH.length}
+function startMin(i){var m=/^(\d{1,2})[.:](\d{2})/.exec(CH[i].t);return m?(+m[1])*60+(+m[2]):0}
+function nowMin(){var d=new Date();return d.getHours()*60+d.getMinutes()}
+function part(){var h=new Date().getHours();return h<11?"pagi":(h<15?"siang":(h<18?"sore":"malam"))}
+function timeOk(i){return UJI||!KUNCI_JAM||nowMin()>=startMin(i)}
+function prevOk(i){return UJI||i===0||isDone(i-1)}
+function curIdx(){for(var i=0;i<CH.length;i++){if(!isDone(i))return i}return CH.length}
+function remain(i){var r=Math.max(1,startMin(i)-nowMin()),h=Math.floor(r/60),m=r%60;return(h?h+" jam ":"")+(m?m+" menit":"")}
+function cstate(i){if(isDone(i))return"done";if(!prevOk(i))return"prev";if(!timeOk(i))return"time";return"open"}
+/* latar: ph = a (di perjalanan), b (tiba), c (pulang). Dicari otomatis: 01a.jpg, 1a.jpg, juga .jpeg/.png/.webp dan huruf besar. Kalau a/b tidak ada, dicoba 01.jpg. */
+var BGX={};
+function cariBg(i,ph,cb){
+var key=i+ph;
+if(BGX[key]!==undefined){cb(BGX[key]);return}
+var n2=("0"+(i+1)).slice(-2),n1=String(i+1),c=[],ex=["jpg","jpeg","png","webp","JPG","JPEG","PNG","WEBP"],ps=[ph,ph.toUpperCase()];
+[n2,n1].forEach(function(n){ps.forEach(function(p){ex.forEach(function(e){c.push(n+p+"."+e)})})});
+if(ph!=="c")[n2,n1].forEach(function(n){ex.forEach(function(e){c.push(n+"."+e)})});
+(function t(k){
+if(k>=c.length){BGX[key]="";cb("");return}
+var im=new Image();im.onload=function(){BGX[key]=c[k];cb(c[k])};im.onerror=function(){t(k+1)};im.src=c[k];
+})(0);
+}
+/* suara & getar */
+var AC=null;
+function ac(){if(!AC){var C2=window.AudioContext||window.webkitAudioContext;if(C2)AC=new C2()}if(AC&&AC.state==="suspended")AC.resume();return AC}
+function beep(f,t,d,type,v){var a=ac();if(!a)return;var o=a.createOscillator(),g=a.createGain();o.type=type||"sine";o.frequency.value=f;var s=a.currentTime+t;g.gain.setValueAtTime(0.0001,s);g.gain.exponentialRampToValueAtTime(v||0.12,s+0.01);g.gain.exponentialRampToValueAtTime(0.0001,s+d);o.connect(g);g.connect(a.destination);o.start(s);o.stop(s+d+0.02)}
+function sfx(k){
+if(!PM.sfx)return;
+if(k==="tap")beep(660,0,.06,"triangle");
+else if(k==="ch")[523,784].forEach(function(f,i){beep(f,i*.08,.2,"triangle")});
+else if(k==="bell"){beep(1175,0,.9,"sine",.12);beep(1760,.02,.7,"sine",.06);beep(2349,.05,.5,"sine",.04)}
+else if(k==="up")[659,880,1175].forEach(function(f,i){beep(f,i*.08,.25,"sine",.1)});
+else if(k==="win")[523,659,784,1047].forEach(function(f,i){beep(f,i*.1,.25,"triangle")});
+else if(k==="fan")[523,659,784,1047,1319].forEach(function(f,i){beep(f,i*.12,.4,"triangle")});
+}
+function buzz(p){if(PM.sfx&&navigator.vibrate){try{navigator.vibrate(p)}catch(e){}}}
+function sfxUi(){$("sfxb").textContent=PM.sfx?"🔔":"🔕";$("sfxb").setAttribute("aria-label",PM.sfx?"Matikan efek suara":"Nyalakan efek suara")}
+$("sfxb").addEventListener("click",function(){PM.sfx=!PM.sfx;savePM();sfxUi();if(PM.sfx)sfx("tap")});
+sfxUi();
+/* bintang dekor */
+(function(){var h="",c=["✦","◦","•","✧","○"];for(var i=0;i<34;i++)h+='<i style="left:'+rnd(100)+'%;top:'+rnd(100)+'%;font-size:'+(8+rnd(12))+'px;animation-delay:'+(rnd(30)/10)+'s">'+c[i%5]+'</i>';$("sp").innerHTML=h})();
+/* modal */
+function modal(html,btns){
+$("mc").innerHTML=html;var mb=$("mb");mb.innerHTML="";
+btns.forEach(function(x){var b=document.createElement("button");b.type="button";b.className="nav"+(x.alt?" alt":"");b.textContent=x.t;b.addEventListener("click",x.f);mb.appendChild(b)});
+$("mv").hidden=false;document.body.style.overflow="hidden";mb.firstChild.focus();
+}
+function closeModal(){$("mv").hidden=true;if($("stg").hidden)document.body.style.overflow=""}
+/* ===== peta ===== */
+/* titik 9 perhentian di peta.jpg, dari bawah (Stasiun Bumi) ke atas (lubang hitam). Kalau meleset, atur lewat menu pembuat. */
+var PTD=[[33,90],[78,75],[26,64],[76,53],[22,41],[74,37],[88,21.5],[27,15.5],[84,8.5]];
+var PT=PTD.map(function(p){return p.slice()});
+try{var sp0=JSON.parse(localStorage.getItem(KP)||"null");if(sp0&&sp0.length===CH.length&&sp0.every(function(p){return p&&p.length===2&&isFinite(p[0])&&isFinite(p[1])}))PT=sp0}catch(e){}
+var mapi=$("mapi"),mimg=$("mapimg"),mk=[];
+function drawPath(){$("mpl").setAttribute("points",PT.map(function(p){return p[0]+","+p[1]}).join(" "))}
+function mapState(){var ok=mimg.complete&&mimg.naturalWidth>0;mapi.classList.toggle("nomap",!ok);if(ok)mapi.style.paddingTop=(mimg.naturalHeight/mimg.naturalWidth*100)+"%"}
+mimg.addEventListener("load",mapState);mimg.addEventListener("error",mapState);
+if(mimg.complete)mapState();
+CH.forEach(function(c,i){
+var b=document.createElement("button");b.type="button";b.className="mk";
+b.style.left=PT[i][0]+"%";b.style.top=PT[i][1]+"%";
+b.innerHTML='<span class="mn"></span><span class="mb2" hidden></span><span class="ml"></span>';
+b.addEventListener("click",function(){if(ATUR)return;tapCh(i)});
+mapi.appendChild(b);mk.push(b);
+});
+drawPath();
+function savePT(){try{localStorage.setItem(KP,JSON.stringify(PT))}catch(e){}}
+/* ketuk judul 5x untuk membuka menu pembuat: cek gambar / atur titik peta */
+function cekGambar(){
+var L=[];for(var i=1;i<=9;i++){L.push("bg:"+(i-1)+":a");L.push("bg:"+(i-1)+":b")}
+L.push("bg:8:c");
+L.push("peta.jpg","lockscreen.jpg","cap.png","mimpi.mp3");
+["zuca","jelly"].forEach(function(n){["diam","bicara","senang","kaget"].forEach(function(m){L.push(n+"-"+m+".png")})});
+var addr="";try{addr=decodeURI(location.href.split("#")[0])}catch(e){addr=location.href.split("#")[0]}
+modal('<div class="dd"><p class="dtt">Cek gambar</p><p class="dq" id="ckp">Memeriksa...</p><div id="ckl" style="text-align:left;font-size:.85rem;line-height:1.7"></div><p class="dq" style="font-size:.75rem;word-break:break-all">Alamat web ini:<br>'+esc(addr)+'</p></div>',[{t:"Tutup",alt:true,f:closeModal}]);
+var rows={},n=0;
+function nm(f){if(f.indexOf("bg:")!==0)return f;var p=f.split(":"),k=("0"+(+p[1]+1)).slice(-2)+p[2];return"Latar "+k+(rows[f]?" ("+rows[f]+")":" (cari "+k+".jpg)")}
+function fin(){
+n++;if(n<L.length)return;
+var ok=0,h="";L.forEach(function(f){if(rows[f])ok++;h+=(rows[f]?"✅ ":"❌ ")+nm(f)+"<br>"});
+$("ckl").innerHTML=h;
+$("ckp").textContent=ok===L.length?"Semua "+L.length+" file kebaca ✅":(ok===0?"Tidak ada yang kebaca. Biasanya karena file web ini tidak satu folder dengan gambarnya, atau dibuka dari pratinjau.":ok+" dari "+L.length+" file kebaca. Yang ❌ biasanya salah nama atau salah huruf besar-kecil.");
+}
+L.forEach(function(f){
+if(f.indexOf("bg:")===0){var p=f.split(":");cariBg(+p[1],p[2],function(g){rows[f]=g||0;fin()});return}
+if(/\.mp3$/.test(f)){var a=new Audio();a.addEventListener("loadedmetadata",function(){rows[f]=1;fin()});a.addEventListener("error",function(){rows[f]=0;fin()});a.preload="metadata";a.src=f;return}
+var im=new Image();im.onload=function(){rows[f]=1;fin()};im.onerror=function(){rows[f]=0;fin()};im.src=f});
+}
+function menuPembuat(){
+modal('<div class="dd"><p class="dtt">Menu pembuat</p><p class="dq">Alat bantu buat ngecek dan merapikan web ini.</p></div>',[
+{t:"🔍 Cek gambar",f:function(){closeModal();cekGambar()}},
+{t:"📍 Atur titik di peta",f:function(){closeModal();try{location.hash="#atur"}catch(e){}location.reload()}},
+{t:"Tutup",alt:true,f:closeModal}]);
+}
+(function(){var n=0,t=null;document.querySelector("#hm h1").addEventListener("click",function(){n++;clearTimeout(t);t=setTimeout(function(){n=0},1500);if(n>=5){n=0;menuPembuat()}})})();
+function nowText(){
+if(ATUR)return"";
+if(S.cap)return"🌙 Perjalanan hari ini sudah dicap. Sampai besok, "+NAMA_DIA+"!";
+if(allDone())return"🌌 Semua perhentian selesai! Ketuk titik lubang hitam untuk lihat ending.";
+var c=curIdx();
+if(!timeOk(c))return"⏳ Perhentian "+(c+1)+" dibuka jam "+CH[c].t+" ("+remain(c)+" lagi)";
+return"🚂 Perhentian "+(c+1)+" siap! Lakukan misi nyatanya, lalu ketuk titik berkedip di peta.";
+}
+function refresh(){
+var c=curIdx();
+$("cBond").textContent="💖 "+S.bond;$("cLight").textContent="🪐 "+S.done.length+"/"+CH.length;
+$("now").textContent=nowText();
+CH.forEach(function(ch,i){
+var st=ATUR?"open":cstate(i),b=mk[i],vis=ATUR||i<=c+1||isDone(i);
+var cls="mk"+(st==="done"?" done":"")+(st==="open"?" open":"")+((st==="prev"||st==="time")?" lk0":"")+(vis?"":" hid");
+if(ATUR)cls="mk open";
+b.className=cls;
+var n=b.querySelector(".mn"),bub=b.querySelector(".mb2"),lab=b.querySelector(".ml");
+n.textContent=!vis?"?":(st==="done"?"✓":(st==="prev"?"🔒":(st==="time"?"⏳":(i+1))));
+if(ATUR)n.textContent=i+1;
+lab.textContent=vis?ch.title:"";
+bub.hidden=ATUR||!(i===c&&(st==="open"||st==="time")&&!S.cap);
+bub.textContent=st==="open"?"Mulai di sini ✨":"⏳ "+ch.t;
+var t3=st==="done"?"selesai":(st==="open"?"siap dibaca":(st==="time"?"terbuka jam "+ch.t:"terkunci, selesaikan Bab "+i+" dulu"));
+b.setAttribute("aria-label","Bab "+(i+1)+": "+(vis?ch.title:"tertutup")+", "+t3);
+});
+}
+setInterval(refresh,20000);
+function focusNow(){
+if(ATUR||UJI)return;
+try{var c=Math.min(curIdx(),CH.length-1);mk[c].scrollIntoView({block:"center",behavior:"smooth"})}catch(e){}
+}
+window.__onOpen=function(){setTimeout(focusNow,150)};
+function rewHtml(i){var r=CH[i].reward;return'<p class="dk">KENANGAN #'+(i+1)+'</p><p class="dm"><b>'+r[0]+'</b></p><p class="dtt">'+esc(r[1])+'</p><p class="dq">'+esc(r[2])+'</p>'}
+function banner(i){return'<img class="ban" id="bn" alt="" hidden>'}
+function setBn(i){cariBg(i,"b",function(f){if(f)return put(f);cariBg(i,"a",function(g){if(g)put(g)})});function put(f){var im=$("bn");if(im){im.src=f;im.hidden=false}}}
+function tapCh(i){
+if(ATUR)return;
+sfx("tap");var st=cstate(i),c=CH[i];
+if(st==="done"){
+if(allDone()&&i===CH.length-1){modal('<div class="dd">'+rewHtml(i)+'</div>',[{t:"Lihat ending dan cap 🌌",f:function(){closeModal();showFin()}},{t:"Tutup",alt:true,f:closeModal}]);return}
+modal('<div class="dd">'+banner(i)+rewHtml(i)+'</div>',[{t:"Tutup",alt:true,f:closeModal}]);setBn(i);return}
+if(st==="prev"){modal('<div class="dd"><p class="dk">BAB '+(i+1)+'</p><p class="dm"><b>🔒</b></p><p class="dq">Selesaikan Bab '+i+' dulu ya.</p></div>',[{t:"Tutup",alt:true,f:closeModal}]);return}
+if(st==="time"){modal('<div class="dd"><p class="dk">BAB '+(i+1)+'</p><p class="dtt">'+esc(c.title)+'</p><p class="dm"><b>⏳</b></p><p class="dq">Bab ini terbuka jam '+c.t+' ('+remain(i)+' lagi).</p></div>',[{t:"Tutup",alt:true,f:closeModal}]);return}
+modal('<div class="dd">'+banner(i)+'<p class="dk">BAB '+(i+1)+' · '+c.t+'</p><p class="dtt">'+esc(c.title)+'</p><p class="dm"><b>'+c.e+'</b></p><p class="dp"><b>Misi nyata hari ini:</b><br>'+esc(c.task)+'</p></div>',
+[{t:"Sudah kulakukan, lanjutkan cerita ✨",f:function(){closeModal();startCh(i)}},{t:"Belum, nanti dulu",alt:true,f:closeModal}]);setBn(i);
+}
+/* mode atur titik di peta (#atur) */
+if(ATUR){
+var drag=-1;
+mk.forEach(function(b,i){
+b.style.touchAction="none";
+b.addEventListener("pointerdown",function(e){e.preventDefault();drag=i;try{b.setPointerCapture(e.pointerId)}catch(x){}});
+b.addEventListener("pointermove",function(e){
+if(drag!==i)return;
+var r=mapi.getBoundingClientRect();
+var x=Math.max(3,Math.min(97,(e.clientX-r.left)/r.width*100)),y=Math.max(3,Math.min(97,(e.clientY-r.top)/r.height*100));
+PT[i]=[Math.round(x*10)/10,Math.round(y*10)/10];
+b.style.left=PT[i][0]+"%";b.style.top=PT[i][1]+"%";drawPath();
+});
+function end(){if(drag===i){drag=-1;savePT()}}
+b.addEventListener("pointerup",end);b.addEventListener("pointercancel",end);
+});
+$("hudn").hidden=true;$("huda").hidden=false;
+$("aLihat").addEventListener("click",function(){
+modal('<div class="dd"><p class="dtt">Posisi titik</p><p class="dq">Salin angka ini dan kirim ke aku kalau mau dipasang permanen.</p><textarea class="ta" id="ta" readonly></textarea></div>',[{t:"Tutup",alt:true,f:closeModal}]);
+$("ta").value=JSON.stringify(PT);
+try{$("ta").focus();$("ta").select()}catch(e){}
+});
+$("aReset").addEventListener("click",function(){
+PT=PTD.map(function(p){return p.slice()});
+mk.forEach(function(b,i){b.style.left=PT[i][0]+"%";b.style.top=PT[i][1]+"%"});
+drawPath();try{localStorage.removeItem(KP)}catch(e){}
+});
+$("aSelesai").addEventListener("click",function(){try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}location.reload()});
+}
+/* ===== mesin cerita ===== */
+var ST={ph:"a",busy:false,tok:0,ci:-1,q:[],i:0,typing:false,tw:null,fl:null,cb:null,full:"",snap:null,ended:false,choosing:false};
+var META={N:{n:""},P:{n:AKU},K:{n:NAMA_DIA}};
+var SPR={z:"zuca",o:"jelly"};
+if(BALIK_ZUCA)$("pme").classList.add("flip");
+if(BALIK_JELLY)$("plu").classList.add("flip");
+var RM=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
+/* gambar karakter: diam, bicara, senang, kaget. Kalau gambarnya belum ada, otomatis pakai emoji. */
+(function(){["zuca","jelly"].forEach(function(n){["diam","bicara","senang","kaget"].forEach(function(m){var im=new Image();im.src=n+"-"+m+".png"})})})();
+function loadSpr(w,mood){
+var im=$(w==="z"?"imz":"imo"),box=$(w==="z"?"pme":"plu");
+if(im._m===mood)return;
+im._m=mood;
+im.onload=function(){box.classList.add("ok");box.classList.remove("bad")};
+im.onerror=function(){
+if(mood!=="diam"){im._m=null;loadSpr(w,"diam")}
+else{box.classList.add("bad");box.classList.remove("ok")}
+};
+im.src=SPR[w]+"-"+mood+".png";
+}
+function spkOf(n){return n.w==="K"?"z":(n.w==="P"?"o":null)}
+function moodsOf(n){var m={z:"diam",o:"diam"},sp=spkOf(n);if(n.z)m.z=n.z;if(n.o)m.o=n.o;if(sp&&n.m)m[sp]=n.m;return m}
+function cond(n){
+if(n.if&&!F[n.if])return false;
+if(n.no&&F[n.no])return false;
+if(n.min!=null&&S.bond<n.min)return false;
+if(n.max!=null&&S.bond>n.max)return false;
+if(n.when&&n.when.split(",").indexOf(part())<0)return false;
+return true;
+}
+function applyPhase(){
+var c=CH[ST.ci],scn=$("scn"),ci=ST.ci,ph=ST.ph;
+scn.classList.toggle("noppl",ph!=="b");
+$("pt").textContent=ph==="a"?"🚂 Menuju "+c.title:(ph==="b"?c.e+" "+c.title:"🌙 Pulang");
+$("sh").textContent=ph==="c"?"🌅":c.e;
+scn.classList.remove("hasbg");
+var grad="linear-gradient("+c.bg[0]+","+c.bg[1]+")";
+scn.style.background=grad;
+cariBg(ci,ph,function(f){if(!f||ST.ci!==ci||ST.ph!==ph)return;scn.style.background="url("+f+") center/cover no-repeat,"+grad;scn.classList.add("hasbg")});
+if(ph==="b"){loadSpr("z","diam");loadSpr("o","diam")}
+}
+function doTrans(to){
+var tok=ST.tok;
+ST.busy=true;stopFlap();clearInterval(ST.tw);ST.typing=false;
+$("dnx").hidden=true;$("dtx").textContent="";$("dnm").hidden=true;
+sfx(to==="c"?"fan":"bell");buzz([30,40,30]);
+var fl=$("fl");fl.classList.remove("go");void fl.offsetWidth;fl.classList.add("go");
+setTimeout(function(){if(ST.tok!==tok)return;ST.ph=to;applyPhase()},RM?0:450);
+setTimeout(function(){if(ST.tok!==tok)return;ST.busy=false;next()},RM?100:1000);
+}
+function startCh(ci){
+var c=CH[ci];
+ST.ci=ci;ST.q=c.scene.slice();ST.i=0;ST.ended=false;ST.choosing=false;ST.busy=false;ST.tok++;ST.ph="a";
+ST.snap={bond:S.bond,F:Object.assign({},F),tepat:S.tepat};
+var late=!UJI&&(nowMin()-startMin(ci)>90);
+if(late)F.late=true;else delete F.late;
+if(!late)S.tepat++;
+var scn=$("scn");
+scn.style.setProperty("--b1",c.bg[0]);scn.style.setProperty("--b2",c.bg[1]);
+$("sc").textContent=c.deco;
+$("sb").textContent="💖 "+S.bond;
+$("stg").hidden=false;document.body.style.overflow="hidden";
+$("chs").hidden=true;$("dtx").textContent="";$("dnm").hidden=true;
+loadSpr("z","diam");loadSpr("o","diam");
+applyPhase();
+cariBg(ci,"b",function(){});if(c.end)cariBg(ci,"c",function(){});
+sfx("up");next();$("dlg").focus();
+}
+function tg(el,c){el.classList.remove("on");el.classList.remove("dim");if(c)el.classList.add(c)}
+function por(w){
+tg($("pme"),w==="K"?"on":(w==="P"?"dim":""));
+tg($("plu"),w==="P"?"on":(w==="K"?"dim":""));
+}
+function stopFlap(){clearInterval(ST.fl);ST.fl=null}
+function typeText(t,cb){
+clearInterval(ST.tw);ST.full=t;ST.typing=true;ST.cb=cb;$("dnx").hidden=true;
+function fin(){clearInterval(ST.tw);ST.typing=false;$("dnx").hidden=false;var f=ST.cb;ST.cb=null;if(f)f()}
+ST.fin=fin;
+if(RM){$("dtx").textContent=t;fin();return}
+var k=0;$("dtx").textContent="";
+ST.tw=setInterval(function(){k+=2;$("dtx").textContent=t.slice(0,k);if(k>=t.length)fin()},24);
+}
+function showNode(n){
+var m=META[n.w];
+$("dnm").textContent=(n.w==="P"&&ST.ph!=="b"?"🔔 ":"")+m.n;$("dnm").hidden=!m.n;$("dnm").className="dnm "+n.w;
+$("dtx").className="dtx"+(n.w==="N"?" nar":"");
+por(n.w);stopFlap();
+var mo=moodsOf(n),sp=spkOf(n);
+loadSpr("z",mo.z);loadSpr("o",mo.o);
+var flap=sp&&!n.m&&!n[sp]&&!RM&&ST.ph==="b";
+if(flap){loadSpr(sp,"bicara");var t=1;ST.fl=setInterval(function(){t^=1;loadSpr(sp,t?"bicara":"diam")},170)}
+typeText(n.t,function(){stopFlap();var m2=moodsOf(n);loadSpr("z",m2.z);loadSpr("o",m2.o)});
+}
+function next(){
+$("chs").hidden=true;
+while(true){
+if(ST.i>=ST.q.length){
+var c=CH[ST.ci];
+if(c.end&&!ST.ended){
+ST.ended=true;
+var e=ENDS.filter(function(x){return x.ok()})[0];
+S.ending=e.id;if(PM.ends.indexOf(e.id)<0){PM.ends.push(e.id);savePM()}
+ST.q=[T("c")].concat(e.nodes());ST.i=0;continue;
+}
+finishCh();return;
+}
+var n=ST.q[ST.i++];
+if(n.w==="T"){doTrans(n.to);return}
+if(!cond(n))continue;
+if(n.ch){showChoice(n);return}
+showNode(n);return;
+}
+}
+function showChoice(n){
+ST.choosing=true;por("K");stopFlap();loadSpr("z","diam");loadSpr("o","diam");
+$("dnm").hidden=true;$("dtx").className="dtx nar";$("dtx").textContent="Apa yang kamu pilih?";$("dnx").hidden=true;
+var box=$("chs");box.innerHTML="";box.hidden=false;
+n.ch.filter(cond).forEach(function(o){
+var b=document.createElement("button");b.type="button";b.className="cbtn";b.textContent=o.t;
+b.addEventListener("click",function(e){
+e.stopPropagation();
+S.bond+=o.b||0;if(o.f)F[o.f]=true;
+$("sb").textContent="💖 "+S.bond;
+if(o.b){var f=document.createElement("div");f.className="bf";f.textContent="💖 +"+o.b;document.body.appendChild(f);setTimeout(function(){f.remove()},1500)}
+sfx("ch");buzz(40);
+ST.choosing=false;
+var r=(o.r||[]).slice();ST.q.splice.apply(ST.q,[ST.i,0].concat(r));
+next();
+});
+box.appendChild(b);
+});
+box.firstChild.focus();
+}
+function advance(){
+if(ST.choosing||ST.busy||$("stg").hidden)return;
+if(ST.typing){$("dtx").textContent=ST.full;if(ST.fin)ST.fin();return}
+sfx("tap");next();
+}
+$("dlg").addEventListener("click",advance);
+$("dlg").addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();advance()}});
+$("scn").addEventListener("click",function(e){if(e.target.id==="scn"||e.target.tagName==="IMG"||e.target.className.indexOf("por")>-1||e.target.id==="sc"||e.target.id==="sh"||e.target.id==="fl")advance()});
+function closeStory(){ST.tok++;ST.busy=false;clearInterval(ST.tw);stopFlap();ST.typing=false;ST.cb=null;$("stg").hidden=true;document.body.style.overflow=""}
+$("sx").addEventListener("click",function(e){
+e.stopPropagation();
+S.bond=ST.snap.bond;S.tepat=ST.snap.tepat;Object.keys(F).forEach(function(k){delete F[k]});Object.assign(F,ST.snap.F);
+closeStory();refresh();
+});
+function finishCh(){
+var ci=ST.ci;
+if(!isDone(ci))S.done.push(ci);
+save();closeStory();refresh();sfx("win");buzz([40,30,80]);burst();
+var all=allDone();
+var btns=all?[{t:"Menuju lubang hitam 🌌",f:function(){closeModal();showFin()}},{t:"Nanti dulu",alt:true,f:closeModal}]:[{t:"Simpan ke jurnal ▶",f:closeModal}];
+modal('<div class="dd">'+rewHtml(ci)+'</div>',btns);
+}
+/* jurnal */
+$("bJur").addEventListener("click",function(){
+sfx("tap");
+var h='<p class="jh">Jurnal Kenangan</p>';
+CH.forEach(function(c,i){h+=isDone(i)?'<div class="jl"><b>'+c.reward[0]+' '+esc(c.reward[1])+'</b><span>'+esc(c.reward[2])+'</span></div>':'<div class="jl no"><b>❓ Kenangan #'+(i+1)+'</b><span>Belum didapat</span></div>'});
+h+='<p class="jh">Ending ditemukan: '+PM.ends.length+'/'+ENDS.length+'</p>';
+ENDS.forEach(function(e){h+=PM.ends.indexOf(e.id)>-1?'<div class="jl"><b>🏆 '+esc(e.name)+'</b></div>':'<div class="jl no"><b>❓ ???</b><span>'+esc(e.hint)+'</span></div>'});
+modal(h,[{t:"Tutup",alt:true,f:closeModal}]);
+});
+/* gerbang & cap */
+function burst(){
+if(RM)return;
+var e=["⭐","🌙","🪐","💖","✨"];
+for(var i=0;i<16;i++){
+var s=document.createElement("span");s.className="cf";s.textContent=e[i%e.length];
+s.style.left=(30+Math.random()*40)+"%";s.style.top="45%";
+s.style.setProperty("--dx",(Math.random()*240-120)+"px");s.style.setProperty("--dy",(Math.random()*-260-40)+"px");
+document.body.appendChild(s);setTimeout(function(x){x.remove()},1600,s);
+}
+}
+function endObj(){return ENDS.filter(function(x){return x.id===S.ending})[0]||ENDS[ENDS.length-1]}
+var capImg=$("capimg");
+function capState(){$("stamp").classList.toggle("hasimg",!!(capImg.complete&&capImg.naturalWidth>0))}
+capImg.addEventListener("load",capState);capImg.addEventListener("error",capState);
+if(capImg.complete)capState();
+function showFin(){
+var e=endObj();
+$("endc").innerHTML='<small>Ending yang kamu dapat</small><b>'+esc(e.name)+'</b><small>Ending ditemukan: '+PM.ends.length+'/'+ENDS.length+' · Kedekatan 💖 '+S.bond+'</small>';
+if(S.cap)showStamp(false,S.cap);
+$("hm").hidden=true;$("fin").hidden=false;$("hud").hidden=true;window.scrollTo(0,0);
+}
+function showStamp(anim,d){
+$("sdate").textContent=d;$("stc").textContent=endObj().name;
+$("stcap").textContent="Perjalanan Selesai 🚂 · "+endObj().name+" · "+d;
+capState();
+$("stcap").hidden=!$("stamp").classList.contains("hasimg");
+$("ph").hidden=true;$("stamp").hidden=false;if(anim){$("stamp").classList.add("hit");burst()}
+$("bye").hidden=false;$("press").hidden=true;
+}
+capImg.addEventListener("load",function(){if(!$("stamp").hidden)$("stcap").hidden=false});
+$("press").addEventListener("click",function(){
+if(S.cap||!allDone())return;
+S.cap=new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
+save();sfx("fan");buzz([60,40,60,40,120]);showStamp(true,S.cap);refresh();
+});
+$("back").addEventListener("click",function(){$("fin").hidden=true;$("hm").hidden=false;$("hud").hidden=false;window.scrollTo(0,0);refresh()});
+$("again").addEventListener("click",function(){
+modal('<div class="dd"><p class="dm"><b>🔁</b></p><p class="dq">Mulai ulang perjalanan hari ini dari perhentian 1? Ending yang sudah kamu temukan tetap tersimpan.</p></div>',
+[{t:"Ya, ulangi perjalanan",f:function(){
+S={day:today,done:[],bond:0,F:{},tepat:0,ending:null,cap:null};F=S.F;save();
+$("stamp").hidden=true;$("stamp").classList.remove("hit");$("stcap").hidden=true;$("ph").hidden=false;$("bye").hidden=true;$("press").hidden=false;
+closeModal();$("fin").hidden=true;$("hm").hidden=false;$("hud").hidden=false;window.scrollTo(0,0);refresh();
+}},{t:"Batal",alt:true,f:closeModal}]);
+});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!$("mv").hidden)closeModal()});
+refresh();
+/* layar kunci & musik: lihat skrip terpisah di atas */
+try{if(window.__lock){window.__lock.label(TEXT.startBtn,TEXT.contBtn,S.done.length>0||!!S.cap)}}catch(e){}
+</script>
+</body>
+</html>
